@@ -1,0 +1,9 @@
+nelmio_api_doc:
+  documentation:
+    info:
+      title: Test technique web back
+      description: API de notation d'élèves!<br/><br/>Les paramètres des POST et PUT sont acceptés:<br/>- sous la forme d'un json dans le corps de la requete<br/>- comme paramètres de la requete<br/><br/>S'il y'a chevauchement, c'est la paramètre de requete qui prendra le dessus<br/><br/>Aucune authentification n'est requise
+      version: 1.0.0
+  areas: # to filter documented areas
+    path_patterns:
+    - ^/api(?!/doc$) # Accepts routes under /api except /api/doc

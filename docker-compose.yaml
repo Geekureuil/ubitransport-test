@@ -1,0 +1,25 @@
+version: '2'
+services:
+    db:
+        image: mysql:5.7
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}        
+    php:
+        build: php-fpm
+        ports:
+            - '9002:9000'
+        volumes:
+            - ./${APP_PATH}:/var/www/symfony:cached
+        links:
+            - db:mysql
+    nginx:
+        build: nginx
+        ports:
+            - '8080:80'
+        links:
+            - php
+        volumes_from:
+            - php

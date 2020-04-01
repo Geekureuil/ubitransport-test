@@ -103,9 +103,7 @@ class EleveController
         $eleve->setNom($request->get('nom', null));
         $eleve->setPrenom($request->get('prenom', null));
         $eleve->setDateNaissance($request->get('date_naissance', null));
-        
-        dd($eleve);
-        
+                
         //valider et enregister si tout est ok
         $errors = $this->validator->validate($eleve);
         if (count($errors) === 0) {
